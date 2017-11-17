@@ -38,7 +38,7 @@ describe 'Feature Test: User Signup', :type => :feature do
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
-  it 'prevents user from viewing user show page and s to home page if not logged in' do
+  it 'prevents user from viewing user show page and redirects to home page if not logged in' do
     @mindy = User.create(
       name: "Mindy",
       password: "password",
@@ -92,7 +92,7 @@ describe 'Feature Test: User Signout', :type => :feature do
     expect(page).to have_content("Log Out")
   end
 
-  it 's to home page after logging out' do
+  it 'redirects to home page after logging out' do
     visit_signup
     user_signup
     click_link("Log Out")
@@ -112,7 +112,7 @@ describe 'Feature Test: User Signout', :type => :feature do
     expect(page).to have_content("Log Out")
   end
 
-  it 's to home page after admin logs out when user is an admin' do
+  it 'redirects to home page after admin logs out when user is an admin' do
     visit_signup
     admin_signup
     click_link("Log Out")
@@ -205,7 +205,7 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     expect(page).to have_button("Go on this ride")
   end
 
-  it "clicking on 'Go on this ride' s to user show page" do
+  it "clicking on 'Go on this ride' redirects to user show page" do
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
