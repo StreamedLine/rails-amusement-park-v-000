@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_filter :authorize, except: [:index, :show]
+  before_filter :authorize, except: [:index, :show, :new]
 
   def index
   	@attractions = Attraction.all
