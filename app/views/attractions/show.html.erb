@@ -1,0 +1,13 @@
+<h1><%= @attraction.name %></h1>
+
+<% if !admin? %>
+	<%= form_tag "/attractions/#{@attraction.id}/go_on_ride", method: :post %>
+
+	<%= submit_tag "Go on this ride" %>
+<% end %>
+<br>
+<hr>
+<% if admin? %>
+	<%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %>
+	<br>
+<% end %>
